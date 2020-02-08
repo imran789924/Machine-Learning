@@ -28,7 +28,8 @@ for n in range(0,N):
         if(number_of_selections[i] > 0):
             avg_reward = sums_of_reward[i]/number_of_selections[i]
             delta_i = math.sqrt(1.5 * math.log(n+1)/number_of_selections[i])
-            upper_bound = avg_reward + delta_i
+            upper_bound = avg_reward + delta_i #this value keeps getting smaller
+
             
         else:
             upper_bound=1e400
@@ -40,6 +41,7 @@ for n in range(0,N):
     ads_selected.append(ad)
     number_of_selections[ad] = number_of_selections[ad] + 1
     reward = df.values[n, ad]
+    #print(max_upper_bound)
     sums_of_reward[ad] = sums_of_reward[ad] + reward
     total_reward = total_reward + reward
     
@@ -48,3 +50,5 @@ plt.title('Upper Confidence Bound')
 plt.xlabel('ads versions')
 plt.ylabel('Number of times selected')
 plt.draw()
+
+print(df['Ad 5'].sum())
