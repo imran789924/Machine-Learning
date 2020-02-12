@@ -63,7 +63,7 @@ test_set = test_datagen.flow_from_directory('dataset/test_set',
                                             class_mode = 'binary')
 
 classifier.fit_generator(training_set,
-                         samples_per_epoch = 8000,
+                         steps_per_epoch = 8000,
                          nb_epoch = 25,
                          validation_data = test_set,
                          nb_val_samples = 2000)

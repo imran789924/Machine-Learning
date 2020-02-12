@@ -29,7 +29,7 @@ classifier.add(Flatten())
 
 
 #output_dim is number of nodes in hidden layer.
-classifier.add(Dense(output_dim = 128, activation = 'sigmoid'))
+classifier.add(Dense(output_dim = 128, activation = 'relu'))
 
 classifier.add(Dense(output_dim = 1, activation = 'sigmoid'))
 
@@ -56,6 +56,6 @@ test_set = test_datagen.flow_from_directory('dataset/test_set',
 
 classifier.fit_generator(training_set,
                     steps_per_epoch=8000,
-                    epochs=25,
+                    epochs=15,
                     validation_data=test_set,
                     validation_steps=2000)
