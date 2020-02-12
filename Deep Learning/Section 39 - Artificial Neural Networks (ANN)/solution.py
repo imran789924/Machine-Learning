@@ -50,9 +50,14 @@ classifier.add(Dense(output_dim = 1, init = 'uniform', activation = 'sigmoid'))
 
 classifier.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 
-classifier.fit(X_train, y_train, batch_size = 10, epochs = 100)
+classifier.fit(X_train, y_train, batch_size = 1000, epochs = 1000)
 
 y_pred = classifier.predict(X_test)
+y_pred = (y_pred > 0.5)
+
+
+from sklearn.metrics import confusion_matrix
+cm = confusion_matrix(y_test, y_pred)
 
 
 
